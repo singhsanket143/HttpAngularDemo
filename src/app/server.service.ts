@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
-
+import {Http, Headers, Response} from '@angular/http';
+import 'rxjs/Rx';
 @Injectable()
 export class ServerService {
   constructor(private http: Http) {
@@ -13,7 +13,14 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get('https://httpangulardemo-1cdf1.firebaseio.com/data.json');
+    // return this.http.get('https://httpangulardemo-1cdf1.firebaseio.com/data.json');
+    return this.http.get('https://httpangulardemo-1cdf1.firebaseio.com/data.json').map(
+      (response: Response) => {
+        const data = response.json();
+        // console.log(data);
+        return data;
+      }
+    );
   }
 
 }
