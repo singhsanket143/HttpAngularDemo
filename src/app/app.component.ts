@@ -52,6 +52,7 @@ export class AppComponent {
       // },
       (servers: any[]) => {
         console.log(servers);
+        // this.servers = servers;
       },
       (errors) => {
         console.log(errors);
