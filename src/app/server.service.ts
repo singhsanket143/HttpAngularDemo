@@ -11,4 +11,8 @@ export class ServerService {
     return this.http.post('https://httpangulardemo-1cdf1.firebaseio.com/data.json', servers, {headers: headers});
   }
 
+  getServers() {
+    return this.http.get('https://httpangulardemo-1cdf1.firebaseio.com/data.json');
+  }
+
 }
